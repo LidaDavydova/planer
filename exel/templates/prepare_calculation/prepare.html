@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Подготовить расчет{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+    {% csrf_token %}
+    
+	<p>Общие вопросы для брифа</p>
+	
+	<h3>Бюджет до НДС и с НДС</h3>
+	<input type="text" name="budget">
+
+    <h3>Посадочная для кампании.
+        Если ее нет. то сроки готовности</h3>
+	<input type="text" name="landing_page">
+	
+	<h3>Краткое описание бренда/продукта</h3>
+	<input type="text" name="description">
+	
+	<h3>УТП бренда/продукта</h3>
+	<input type="text" name="UTP">
+	
+	<h3>Конкуренты бренда/продукта</h3>
+	<input type="text" name="competitors">
+	
+	<h3>Сроки кампании</h3>
+	<input type="text" name="terms">
+	
+	<h3>География кампании</h3>
+	<input type="text" name="geography">
+	
+	<h3>KPI кампании</h3>
+	<input type="text" name="KPI">
+	
+	<h3>Целевая аудитория бренда/продукта,
+    	на которую будет нацелена реклама</h3>
+	<input type="text" name="audience">
+	
+	<h3>Пожелания по инструментам продвижения(тв,
+    	радио, интернет(баннеры) и пр.)</h3>
+	<input type="text" name="suggestions">
+	
+	<h3>Были ли раньше кампании по продвигаемому бренду/продукту.
+    	Если да, то поделитесь, пожалуйста, результатами</h3>
+	<input type="text" name="companies_before">
+	
+	<h3>Кто будет готовить материалы для кампании?</h3>
+	<input type="text" name="who_prep_materials">
+	
+	<h3>Есть ли установленные и настраиваемые инструменты
+    	аналитики на посадочной: Google Analitics,
+    	Яндекс Метрика, GTM</h3>
+	<input type="text" name="instrument">
+	
+	<h3>Есть ли у бренда/продукта свои официальные страницы
+    	в социальных сетях? Если да, то просьба прислать ссылки на них</h3>
+	<input type="text" name="official_list">
+	
+	<h3>Есть ли у бренда/продукта интеграция CRM системы с инструментами аналитики</h3>
+	<input type="text" name="CRM">
+	
+	<input type="submit" value="Подготовить рассчет">
+	<a href="{% url 'exel:calculate' %}" class="button">РАСЧИТАТЬ</a>
+	<a href="{% url 'exel:main' %}" class="button">Главная</a>
+	
+	</form>
+{% endblock %}

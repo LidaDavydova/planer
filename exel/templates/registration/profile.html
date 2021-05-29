@@ -4,7 +4,11 @@
 {% block content %}
 
     <h1>Мой профиль</h1>
-    Имя пользователя: {{ user.username }} <br>
-    Email: {{ user.email }}
-
+    <form method="post">
+    {% csrf_token %}
+        Имя пользователя: {{ user.username }} <br>
+        Email: {{ user.email }}
+    
+        <input type="submit" value="Главная">
+    </form>
 {% endblock %}

@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Главная страница{% endblock %}</title>
+    
+    <style>
+      .button {
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 15px;
+      margin: 1px 1px;
+      cursor: pointer;
+      }
+    </style>
+    
 </head>
 <body>
     {% block content %}
-    {{name}}
-    <button type="submit">Зарегаться</button>
-    <button type="submit">Войти</button>
-
-    {% endblock %}
+    <a href="{% url 'exel:prepare' %}" class="button">ПОДГОТОВИТЬ РАСЧЕТ</a>
+    <a href="{% url 'exel:download_calc' %}" class="button">ЗАГРУЗИТЬ РАСЧЕТ</a>
+    
+    {% if body == 'on' %}
+        {% autoescape on %}
+            <a href="{% url 'exel:prepare' %}" class="button">БАИНГ</a>
+        {% endautoescape %}
+    {% endif %}
+    
+    <a href="{% url 'exel:prepare' %}" class="button">Завершенные проекты</a>
+	
+	<a href="{% url 'exel:login' %}" class="button">Войти</a>
+	
+	<a href="{% url 'exel:register' %}" class="button">Регистрация</a>
+	
+	{% endblock %}
 </body>
 </html>
